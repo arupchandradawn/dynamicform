@@ -5,11 +5,11 @@ import { useEffect,useState } from "react";
 function App() {
 
   const demoJson = [
-    // {name:'Aishwarya',age:'29',email:'aish@gmail.com'},
-    // {name:'Abhinav',age:'19',email:'abhi33@gmail.com'},
-    // {name:'Kashis',age:'27',email:'kashish@gmail.com'},
-    // {name:'Ketan',age:'22',email:'ketan77@gmail.com'},
-    // {name:'Vaibhav',age:'21',email:'vaihav711@gmail.com'},
+    {name:'Aishwarya',age:'29',email:'aish@gmail.com'},
+    {name:'Abhinav',age:'19',email:'abhi33@gmail.com'},
+    {name:'Kashis',age:'27',email:'kashish@gmail.com'},
+    {name:'Ketan',age:'22',email:'ketan77@gmail.com'},
+    {name:'Vaibhav',age:'21',email:'vaihav711@gmail.com'},
   ]
 
   const listPunjab = ['Chandigarh','Mohali','Dharamshala'];
@@ -40,6 +40,12 @@ function App() {
       }
       console.log(data);
     }
+
+    if(event.target.name === 'email'){
+      if(!isEmailAddress(event.target.value)){
+        alert("Enter a valid email address")
+      }
+    }
     setFormFields(data);
   }
 
@@ -67,10 +73,27 @@ function App() {
     setFormFields(data);
   }
 
+  const isEmailAddress = (email) =>{
+    const emailRegx = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm");
+    const isValidEmail = emailRegx.test(email);
+    console.log(email,isValidEmail);
+    return isValidEmail;
+  }
+
   return (
     <div className="App">
       <form onClick={submit}>
       {formFields.map((form,index)=>{
+        if(form.name === ''){
+          alert("Please enter the name");
+        }
+        if(form.age === ''){
+          alert("Please enter the age");
+        }
+        if(form.email === ''){
+          alert("Please enter the email");
+        }
+
         return(
           <div key={index}>
             <input 
