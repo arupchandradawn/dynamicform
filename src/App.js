@@ -4,17 +4,21 @@ import { useEffect,useState } from "react";
 
 function App() {
 
-  const demoJson = [
-    {name:'Aishwarya',age:'29',email:'aish@gmail.com'},
-    {name:'Abhinav',age:'19',email:'abhi33@gmail.com'},
-    {name:'Kashis',age:'27',email:'kashish@gmail.com'},
-    {name:'Ketan',age:'22',email:'ketan77@gmail.com'},
-    {name:'Vaibhav',age:'21',email:'vaihav711@gmail.com'},
+  let demoJson = [
+    // {name:'Aishwarya',age:'29',email:'aish@gmail.com'},
+    // {name:'Abhinav',age:'19',email:'abhi33@gmail.com'},
+    // {name:'Kashis',age:'27',email:'kashish@gmail.com'},
+    // {name:'Ketan',age:'22',email:'ketan77@gmail.com'},
+    // {name:'Vaibhav',age:'21',email:'vaihav711@gmail.com'},
   ]
 
   const listPunjab = ['Chandigarh','Mohali','Dharamshala'];
   const Jharkhand = ['Ranchi', 'Jamshedpur', 'Daltanganj'];
-  
+
+  if(localStorage.getItem('formData')){
+    demoJson = JSON.parse(localStorage.getItem('formData'));
+  }
+  console.log("demojson >>",demoJson);
   const [formFields, setFormFields ] = useState(demoJson); 
   const [cityFields, setCityFields ] = useState(Jharkhand);
 
@@ -52,6 +56,7 @@ function App() {
   const submit = (e) =>{
     e.preventDefault();
     console.log(formFields);
+    localStorage.setItem('formData',JSON.stringify(formFields));
   }
 
   const addFields = () =>{
@@ -64,6 +69,7 @@ function App() {
     }
 
     setFormFields([...formFields,object])
+    localStorage.setItem('formData',JSON.stringify(formFields));
   }
 
   const removeFields = (index) =>{
@@ -71,6 +77,7 @@ function App() {
     let data = [...formFields];
     data.splice(index,1);
     setFormFields(data);
+    localStorage.setItem('formData',JSON.stringify(formFields));
   }
 
   const isEmailAddress = (email) =>{
