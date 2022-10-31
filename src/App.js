@@ -5,11 +5,11 @@ import { useEffect,useState } from "react";
 function App() {
 
   let demoJson = [
-    // {name:'Aishwarya',age:'29',email:'aish@gmail.com'},
-    // {name:'Abhinav',age:'19',email:'abhi33@gmail.com'},
-    // {name:'Kashis',age:'27',email:'kashish@gmail.com'},
-    // {name:'Ketan',age:'22',email:'ketan77@gmail.com'},
-    // {name:'Vaibhav',age:'21',email:'vaihav711@gmail.com'},
+    {name:'Aishwarya',age:'29',email:'aish@gmail.com'},
+    {name:'Abhinav',age:'19',email:'abhi33@gmail.com'},
+    {name:'Kashis',age:'27',email:'kashish@gmail.com'},
+    {name:'Ketan',age:'22',email:'ketan77@gmail.com'},
+    {name:'Vaibhav',age:'21',email:'vaihav711@gmail.com'},
   ]
 
   const listPunjab = ['Chandigarh','Mohali','Dharamshala'];
