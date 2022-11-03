@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('render add more to be in the document', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const Element = screen.getByTestId("addmore");
+  expect(Element).toBeInTheDocument();
+});
+
+test('render submit to be in the document', () => {
+  render(<App />);
+  const Element = screen.getByTestId("submit");
+  expect(Element).toBeInTheDocument();
 });

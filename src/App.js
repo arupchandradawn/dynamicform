@@ -134,9 +134,9 @@ function App() {
         )
       })}
       </form>
-      <button onClick={addFields}>Add more</button>
+      <button data-testid="addmore" onClick={addFields}>Add more</button>
       <br/>
-      <button onClick={submit}>Submit</button>
+      <button data-testid="submit" onClick={submit}>Submit</button>
     </div>
   );
 }
